@@ -1,0 +1,48 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head><link rel="stylesheet" href="todo.css"></head>
+<body>
+
+
+<form class="form">
+<h1> Todo Tracker </h1>
+<p>Enter your Todos</p>
+<input type="text" id="user-todo" placeholder="new todo" required>
+<h2 id = "header"> Your Todos </h2> 
+<ul>
+
+</ul>
+<button id="clear">Clear all</button> 
+</form>   
+</body>
+
+
+
+<script>
+var form = document.querySelector('form');
+var todoList = document.querySelector('ul');
+var button = document.querySelector('button');
+var input = document.getElementById('user-todo');
+    
+form.addEventListener('submit',function(e) {
+e.preventDefault();
+todoMaker(input.value) 
+input.value = "";
+ });
+var todoMaker = function(text) {   
+var todo= document.createElement('li');
+todo.textContent = text;
+todoList.appendChild(todo);
+ }
+document.getElementById("clear").onclick = myFunc;
+function myFunc() {
+ while (todoList.firstChild) {
+todoList.removeChild(todoList.firstChild);
+ }
+}
+
+</script>
+</body>
+</html>
